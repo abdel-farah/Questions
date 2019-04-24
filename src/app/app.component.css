@@ -1,0 +1,98 @@
+body{
+	height: 100%;
+}
+nav {
+	display: flex;
+	margin-bottom: 5px;
+	background-color: #E9ECEF;
+	font-size: 16px;
+}
+
+.nav-item, .nav-link {
+	color: black;
+}
+.nav-item:hover {
+  color: black;
+  text-decoration: underline #618981;
+}
+
+h2{
+	position: fixed;
+	right: 335px;
+	font-size: 16px;
+	display: block;
+    margin: 0px .5em 0px .5em;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-top: 8px;
+}
+
+h2:hover {
+	text-decoration: none;
+}
+
+#logo {
+	height: 35px;
+	width: 25px;
+	float: left;
+	padding: 0px;
+}
+
+input{
+    width: 20%!important;
+    vertical-align: middle;
+    position: fixed;
+    right: 500px;
+}
+
+select {
+	position: fixed;
+    right: 150px;
+    vertical-align: middle;	
+}
+
+.logout-btn {
+ 	position: fixed;
+    right: 10px;
+    vertical-align: middle;	
+	background-color: #d8726bff;
+	font-size: 1em;
+	border-radius: 4px;
+	color: black;
+	margin: 5px;
+    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+.logout-btn:hover {
+	color: white;
+}
+
+@media screen and (max-width: 1000px) {
+
+	input {
+		right: 270px;
+		display: none;
+	}
+	select{
+		right: 90px;
+		width: 180px!important;
+		display: none;
+	} 
+	h2{
+		display: none;
+	}
+}
+@media screen and (max-width: 480px) {
+
+	input {
+		display: none;
+	}
+	select{
+		display: none;
+	} 
+	h2{
+		display: none;
+	}
+}
+

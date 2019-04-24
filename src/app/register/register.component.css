@@ -1,0 +1,70 @@
+input {
+	width: 50%;
+	display: inline-block;
+    float: none;
+
+}
+button {
+	color: black;
+	width: 200px;
+	background-color: #618981;
+	display: block;
+	border: solid black 1px;
+}
+
+.btn-link {
+	display: block;
+	color: #D47F7A;
+	margin-top: 10px;
+	text-align: left;
+}
+
+.form-group {
+	text-align: left;
+}
+
+h2 {
+	font-size: 2.5em;
+	padding-bottom: 40px;  
+}
+
+#logo {
+	float: right;
+	display:inline-block;
+	width: 20%;
+	height: 10%;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: #618981;
+    border: solid white 1px;
+}
+
+@media screen and (max-width: 600px) {
+	button {
+		color: black;
+		width: 200px;
+		background-color: #618981;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		border: solid black 1px;
+	}
+	input {
+		width: 80%;
+		display: inline-block;
+	    float: none;
+	}
+	.btn-link {
+		display: block;
+		text-align: center;
+	}
+	h2 {
+		font-size: 30px;
+		text-align: center;
+	}
+	.form-group {
+		text-align: center;
+	}
+}

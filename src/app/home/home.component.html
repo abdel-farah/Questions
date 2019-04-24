@@ -1,0 +1,151 @@
+﻿<mat-sidenav-container class="custom-container">
+  <mat-sidenav #sidenav mode="side" opened class="custom-sidenav" [fixedInViewport]="true" [fixedTopGap]="56">
+    <div id="course-grp" class="container">
+
+      <h2> Your Courses:</h2>
+      <ng-container *ngFor="let course of courseRoomService.userCourses | async">
+        <a [routerLink]="['/home', course.CourseId]">
+          <button class="course-btn" mat-raised-button>{{course.CourseName + " " + course.CourseNumber}}</button>
+        </a>
+      </ng-container>
+    </div>
+
+    <div id="other-grp" class="container">
+      <a [routerLink]="['/home/savedQuestions']">
+        <button class="other-btn" mat-raised-button color="primary">Saved Questions</button>
+      </a>
+    </div>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <h1 align="center">{{pageTitle}}</h1>
+    <!--For the questions pane and button-->
+    <div class="container" *ngIf="(showAllQuestions || (showSaved && isSavedLoaded))" id="questionsGroupCont">
+      <mat-sidenav-container class="questionAnswerContainer" *ngFor="let message of messages">
+        <mat-sidenav-content>
+            <mat-grid-list cols="4" rowHeight="14%" style="width: 95%">
+              <mat-grid-tile rowspan="3">
+                <div class="giantLetter">Q</div>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="3" rowspan="{{message.topAnswer != '' ? '3' : 6}}" class="question">
+                <app-chat-message [message]="message"></app-chat-message>
+                <mat-form-field *ngIf="toAnswer == message.mid">
+                  <input [(ngModel)]="answerText" autocomplete="off" matInput placeholder="Answer">
+                  <button matSuffix (click)="submitAnswer(message)">Answer</button>
+                </mat-form-field>
+              </mat-grid-tile>
+
+              <div *ngIf="message.topAnswer != ''">
+                <mat-grid-tile rowspan="3">
+                  <div class="giantLetter">A</div>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="3" rowspan="3">
+
+                  <div class="topAnswer">
+                    <div class="name"> {{message.topAnswer.sender.username}} </div>
+                    <div>
+                      {{message.topAnswer.answer}}
+                    </div>
+                    <div class="points">
+                      {{message.topAnswer.likesCount}}
+                      <button mat-icon-button (click)="upVoteAnswer(message, message.topAnswer)">
+                        <mat-icon class="thumbs">thumb_up</mat-icon>
+                      </button>
+                      {{message.topAnswer.dislikesCount}}
+                      <button mat-icon-button>
+                        <mat-icon class="thumbs"  (click)="downVoteAnswer(message, message.topAnswer)" >thumb_down</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="3" rowspan="1">
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1" rowspan="1" id="seeAllAnswers">
+                  <button mat-button (click)="seeAllAnswers(message)">
+                    See All Answers
+                    <mat-icon> expand_more</mat-icon>
+                  </button>
+                </mat-grid-tile>
+              </div>
+            </mat-grid-list>
+          <!-- </div> -->
+        </mat-sidenav-content>
+
+        <mat-sidenav #sidenav mode="side" opened class="questionAnswerSideNav" position="end">
+          <button mat-raised-button id="likeButton" (click)="courseRoomService.incrementLikes(message)">
+          <mat-icon [ngStyle]="{color: hasLiked(message.likes)}">favorite</mat-icon>
+            {{message.likesCount}}
+          </button>
+          <button mat-raised-button id="answerButton" (click)="answer(message.mid)">
+            Answer
+          </button>
+
+          <button mat-raised-button (click)="dbs.questionRefToUser(message.mid, courseId)" id="saveButton">
+            Save
+          </button>
+
+        </mat-sidenav>
+      </mat-sidenav-container>
+    </div>
+    <div div class="container" *ngIf = "!showAllQuestions || !showSaved" id="questionsGroupCont">
+        <!--{{allAnswersInfo}}-->
+        <button mat-icon-button (click)= "goBackFromSeeAllAnswers()">
+          <mat-icon style="position: fixed !important"> arrow_back_ios</mat-icon>
+        </button>
+        <div *ngIf = "allAnswersLoaded | async">
+          <mat-sidenav-content>
+            <app-chat-message class="anspagequesiton"[message]="allAnswersInfo"><h4></h4></app-chat-message>
+            <div *ngFor = "let answer of allAnswersInfo.answers">
+                <div class="allAnswerpage">
+                    <div class="name"> {{answer.sender.username}} </div>
+                      {{answer.answer}}
+                    <div class="points" >
+                      {{answer.likesCount}}
+                      <button mat-icon-button (click)="upVoteAnswer(allAnswersInfo, answer)">
+                        <mat-icon class="thumbs">thumb_up</mat-icon>
+                      </button>
+                      {{answer.dislikesCount}}
+                      <button mat-icon-button (click)="downVoteAnswer(allAnswersInfo, answer)">
+                        <mat-icon class="thumbs">thumb_down</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+
+            </div>
+        </mat-sidenav-content>
+      </div>
+    </div>
+    
+    <div *ngIf=switchForm class="new-message">
+      <div class="input-group">
+        <input [(ngModel)]="newMessageText" type="text" class="form-control" placeholder="Ask a question"
+          (keyup.enter)="submit(newMessage.value)" #newMessage>
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="submit(newMessage.value)">Enter</button>
+        </div>
+      </div>
+    </div>
+
+    <button md-fab class="qButton" (click)="toggleForm()" [style.backgroundImage]="'url(' + 'assets/img/logo.svg' +')'"
+      style="
+              position: fixed;
+              right: 10px;
+              bottom: 10px;
+              border-radius: 50%;
+              border-color: black;
+              border-width: medium;
+              width: 80px;
+              height: 80px;
+              background-color: #E9ECEF;
+              background-repeat: no-repeat;
+              background-size: 90% 90%;
+              background-position: center center;
+              z-index: +1;">
+    </button>
+    <!--For the questions pane and button-->
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    min-height: 100% !important;
+    height: 100% !important;
+    margin: 0;
+  }
+  .custom-dialog-container .mat-dialog-container{
+    padding:5px !important;
+}

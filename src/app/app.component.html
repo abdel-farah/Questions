@@ -1,0 +1,25 @@
+﻿<div *ngIf="isLoggedIn | async">
+        <nav class="navbar navbar-expand fixed-top">
+            <div class="navbar-nav">
+                <img id="logo" src="../assets/img/logo.svg">
+
+                <a *ngIf="userType == 'student'" class="nav-item nav-link" routerLink="/">Home</a>
+                <a *ngIf="userType == 'admin'" class="nav-item nav-link" routerLink="/courses">Courses</a>
+                <a *ngIf="userType == 'instructor'" class="nav-item nav-link" routerLink="/moderate">Moderate</a>
+            
+                <a [routerLink]="['/login']">
+                <button class="logout-btn" (click)="logout()">Logout</button>
+                </a>
+            </div>
+        </nav>
+</div>
+<!-- main app container -->
+<div class="jumbotron jumbotron-fluid" style="width: 100%; height: 100%; padding: 10vh 10vh 5vh 10vh ; margin: 0%">
+    <div class="container" style="width: 100%">
+        <div class="row">
+            <div class="col-sm-12">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

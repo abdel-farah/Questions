@@ -1,0 +1,100 @@
+mat-form-field {
+    padding-right: 0px;
+}
+ 
+form {
+    margin-bottom: 5px;
+}
+
+h1 {
+	margin: 5px;
+}
+
+.container {
+	overflow: hidden;
+	width: 100%!important;
+	min-width: 200px;
+}
+
+#email_box {
+	border: 1px solid black; 
+	height: 110px; 
+	overflow: scroll; 
+}
+
+#save-btn {
+	background-color: #558a84ff;
+	display:inline-block;
+  	overflow: auto;
+  	white-space: nowrap;
+    margin: 0px 10px 0px auto;
+}
+
+#cancel-btn {
+	background-color: #e01111;
+}
+
+.add-btn {
+	background-color: #D8726B;
+	margin: 5px;
+}
+
+#edit-btn {
+	background-color: #618981;
+
+}
+
+.mat-paginator{
+	min-width: 400px!important;
+	width: 100%;
+	overflow: hidden;
+	max-height: 40px!important;
+	font-size: 10px;
+}
+
+.mat-paginator-container {
+	min-width: 400px!important;
+	height:40px;
+	width: 100%;
+	overflow: scroll;
+	max-height: 40px!important;
+	padding: 5px!important;
+}
+
+table {
+    width: 100%;
+    height: 40px;
+    max-height: 800px;
+    min-width: 400px;
+    padding: 5px;
+}
+.mat-cell{
+	font-size: 12px;
+}
+
+.jumbotron-fluid {
+	width: 100%!important;
+	height: 100%!important;
+}
+
+@media screen and (max-width: 775px) {
+	.container {
+		margin: 0px;
+	}
+
+	#email_box {
+		height: 90px;
+	}
+
+	.mat-cell{
+		font-size: 10px;
+	}
+	.mat-header-cell {
+		font-size: 10px;
+	}
+	.mat-icon-button{
+		width: 140px!important;
+	}
+
+}
+

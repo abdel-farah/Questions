@@ -1,0 +1,1 @@
+export * from '../course-admin/course-admin.component';

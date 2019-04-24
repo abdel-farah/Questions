@@ -1,0 +1,84 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div class="container" style="width: 900px; height: 450px; overflow: scroll;">
+    <form [formGroup]="newCourse">
+        <mat-form-field>
+            <input matInput formControlName="CourseId" [errorStateMatcher]="matcher" autocomplete="off" placeholder="Course ID"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="CourseName" [errorStateMatcher]="matcher" autocomplete="off" placeholder="Course Name"/>
+            <mat-error *ngIf="f.CourseName.errors?.required">
+                    Course name is required
+            </mat-error>
+            <mat-error *ngIf="f.CourseName.errors?.minlength || f.CourseName.errors?.maxlength">
+                    Course name should be of length 4
+            </mat-error>
+            <mat-error *ngIf="f.CourseName.errors?.pattern">
+                    Letters only, no numbers or special characters 
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="CourseNumber" [errorStateMatcher]="matcher" autocomplete="off" placeholder="Course Number"/>
+            <mat-error *ngIf="f.CourseNumber.errors?.required">
+                    Course number is required
+                </mat-error>
+            <mat-error *ngIf="f.CourseNumber.errors?.minlength || f.CourseNumber.errors?.maxlength">
+                    Course number should be of length 3
+            </mat-error> 
+            <mat-error *ngIf="f.CourseNumber.errors?.pattern">
+                    Should be only numbers 
+            </mat-error>
+        </mat-form-field>
+        
+            <!-- <input matInput autocomplete="off" placeholder="Course ID"/> -->
+        <mat-form-field>
+            <input matInput formControlName="CourseSection" [errorStateMatcher]="matcher" autocomplete="off" placeholder="Section"/>
+            <mat-error *ngIf="f.CourseSection.errors?.required">
+                    Course Section is required
+                </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+                <mat-label>Select a term</mat-label>
+                <mat-select [errorStateMatcher]="matcher" formControlName = "CourseTerm">
+                  <mat-option value="F19"> Fall 2019</mat-option>
+                  <mat-option value="W20"> Winter 2020</mat-option>
+                  <mat-option value="S20"> Spring 2020</mat-option>
+                  <mat-option value="S20"> Summer 2020</mat-option>
+                </mat-select>
+            <mat-error *ngIf="f.CourseTerm.errors?.required">
+                    Term is required
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field> 
+            <input matInput formControlName="Instructor" [errorStateMatcher]="matcher" autocomplete="off" placeholder="Instructor"/>
+            <mat-error *ngIf="f.Instructor.errors?.required">
+                    Instructor is required
+                </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width:100%; padding-top:5px">
+            <input matInput formControlName="ClassList" [errorStateMatcher]="clMatcher" autocomplete="off" placeholder="Class list"/>
+            <button class="add-btn" mat-button matSuffix (click) = "addEmail()">Add</button>
+            <mat-error *ngIf="f.ClassList.errors?.email">
+                Invalid email
+                </mat-error>
+            <mat-error *ngIf="f.ClassList.errors?.required">
+                Enter an email address to add to course list
+            </mat-error>
+        </mat-form-field>
+    </form>
+    <h5>Emails:</h5>
+        <div id ="email_box"> 
+            <div *ngFor= "let email of emails; let i = index">
+            <button (click) = "deleteEmail(i)" matTooltip="{{email}}" mat-button>{{email}}</button>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button id="cancel-btn" mat-button (click)="onNoClick()" cdkFocusInitial>Cancel</button>
+        <button id="save-btn" mat-button (click) = "saveCourse()" >Save</button>
+    </div>
+
+</div>
+
+

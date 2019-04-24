@@ -1,0 +1,307 @@
+app-chat-message{
+    width: 100%;
+    text-align: left;
+  }
+  .custom-container {
+      position: fixed;
+      top: 56px;
+      width: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+  .custom-sidenav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:18%;
+      min-width: 100px;
+      background-color: #E9ECEF;
+    }
+    .course-btn{
+      width: 95%;
+      margin: 0px 0px 15px 3px;
+      font-size: 1em;
+      border-radius: 50px;
+      height: 6vh;
+      background-color: #618981;
+      box-shadow: 4px 8px 8px black;
+      color: black;
+      vertical-align: center;
+    }
+  
+    .course-btn:hover, .other-btn:hover {
+      color: #f0cfc4; 
+    }
+  
+    #course-grp{
+      padding: 5px 0px 5px 0px;
+      height: 50%;
+      overflow-y: hidden; 
+      margin-bottom: 30%;
+    }
+   .other-btn{
+      width: 95%;
+      margin: 0px 0px 15px 3px;
+      font-size: 1em;
+      height: 7vh;
+      background-color: #618981;
+      box-shadow: 4px 8px 8px black;
+  
+      color: black;
+      vertical-align: center;
+      border-radius: 50px;
+  
+    }
+    .add-btn{
+      width: 60%;
+      height: 5vh;
+      position: relative;
+      float: right;
+    }
+    #classNumberField{
+      width:100%;
+    }
+    #other-grp {
+      padding: 0px;
+    }
+  
+    .chatArea{
+      display: flex;
+      height: 85%;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+    }
+  
+    .new-message{
+      width: 75%;
+      position: fixed;
+      bottom:23px;
+      padding-left: 15px;
+      z-index: +1;
+    }
+    
+    .form-control{
+      border-radius: 0;
+      border: 0;
+      background-color: white;
+      border: 1.5px solid black; 
+      color: black;
+      height: 45px;
+      width: 75%;
+    }
+    .form-control:focus{
+      outline: 0;
+      box-shadow:none;
+      
+    }
+    .qButton:focus{
+      outline: 0;
+      box-shadow: none;
+    }
+    h2 {
+      font-size: 1em;
+    }
+  
+    .questionAnswerContainer{
+      width: 100%;
+      height: 45%;
+      border-bottom: grey 1px solid;
+    }
+    
+    #seeAns-btn {
+      margin-top: -10px;
+      margin-left: -15px;
+    }
+    #questionsGroupCont{
+      margin: auto;
+      height: 80%;
+      width:100% !important;
+      overflow-y: auto;
+      border: 0.2rem outset black;
+      border-radius: 12px;
+    }
+  
+    .questionAnswerSideNav{
+      display: flex;
+      width:18%;
+      min-width: 150px;
+      text-align: center;
+    }
+  
+    #likeButton{
+      background-color: #618981;
+      width: 80%;
+      align-items: center;
+      height: 25%;
+      margin: 10px 0px 15px 3px;
+      box-shadow: 2px 4px 4px rgb(20, 15, 5);
+      border-radius: 80%;
+    }
+  
+    #answerButton{
+      width: 80%;
+      align-items: center;
+      background-color: #D47F7A;
+      font-size: large;
+      height: 25%;
+      margin: 0px 0px 15px 3px;
+      box-shadow: 2px 4px 4px rgb(20, 15, 5);
+      border-radius: 80%;
+  
+    }
+  
+    #deleteButton{
+      width: 80%;
+      align-items: center;
+      background-color: #f0cfc4;
+      font-size: large;
+      height: 25%;
+      margin: 0px 0px 15px 3px;
+      box-shadow: 2px 4px 4px rgb(20, 15, 5);
+      border-radius: 80%;
+  
+    }
+  
+    .giantLetter{
+      font-size: 2em;
+      font-weight: bold;
+  
+    }
+  
+    .question {
+      background-color: lightgray;
+      border-radius: .4em;
+      padding: 10px;
+      padding-top: 50px;
+      flex-basis: 100%;
+      text-align: left;
+      align-content: left;
+      -webkit-overflow-scrolling: touch;
+      overflow: scroll;
+    }
+  
+    .name {
+      color: #D47F7A;
+      font-weight: bold;
+      text-align: left;
+    }
+  
+    .mat-drawer-content {
+      overflow: hidden!important;
+      margin-top: 10px;
+    }
+    .mat-figure {
+      background-color: blue;
+    }
+  
+  /*Copied from https://leaverou.github.io/bubbly/*/
+  .topAnswer {
+    position: relative;
+    background: lightgray;
+    width: 95%;
+    border-radius: .4em;
+    height: 90%;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 5px;
+  }
+  
+  .points{
+    padding-top: -10px;
+  }
+  
+  .topAnswer:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: lightgray;
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: -10px;
+    margin-left: -20px;
+    text-align: center;
+    padding-left: 10px;
+  }
+  /* End of copied code*/
+  
+  .mat-icon.mat-accent {
+    color: grey;
+  }
+  .select-room-message{
+    margin-bottom: 10%;
+  
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    padding-left: 10px;
+  }
+  
+  .thumbs{
+    color: #f8d568;
+  }
+  
+  .points{
+    bottom: 0;
+    text-align: right;
+  }
+  
+  #seeAllAnswers{
+    text-align: right;
+    float: right;
+  }
+  
+  .timestamp{
+    font-size: 10px;
+    color: black;
+  }
+  
+  .questionText{
+    padding-left: 50px;
+  }
+  
+  .mat-drawer-inner-container {
+    overflow: hidden;
+  }
+  @media screen and (max-width: 775px) {
+   .mat-drawer-inner-container{
+      display: none;
+   }
+  
+    #seeAns-btn {
+      font-size: 10px;
+    }
+  
+  }
+  @media screen and (max-width: 480px) {
+    h1{
+      font-size: 12px;
+    }
+    .questionAnswerSideNav {
+      display: none;
+    }
+  
+    .topAnswer {
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    .chatMessage {
+          -webkit-overflow-scrolling: touch;
+    }
+    #likeButton, #answerButton, #saveButton {
+      display: none;
+    }
+    .course-btn, .other-btn {
+      font-size: 10px;
+    }
+    .qButton {
+      display: none;
+    }
+  }
+  

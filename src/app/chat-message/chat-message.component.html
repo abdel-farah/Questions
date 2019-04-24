@@ -1,0 +1,20 @@
+<div class="chat-message container d-flex">
+  <!--<h4>Q</h4>-->
+  <div class="bubble d-flex flex-column">
+    <div class="name">
+      {{message.sender.username}} 
+    </div>
+   <small class="timestamp">{{message.createdAt.toDate() | date:'medium'}}</small>
+    <div class="message" >
+      <h4>{{message.message}}</h4>
+    </div>
+  </div>
+  <!--<div class="buttons d-flex flex-column">-->
+    <!--<div class="likeButton">-->
+      <!--<button class="like" mat-raised-button>Like</button>-->
+    <!--</div>-->
+    <!--<div class="answerButton">-->
+      <!--<button class="answer" (click) = "answer()" mat-raised-button>Answer</button>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>

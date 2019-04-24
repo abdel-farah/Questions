@@ -1,0 +1,44 @@
+.chat-message{
+    min-width: 100%;
+    flex-basis: 100%;
+ 
+} 
+
+.buttons{
+    padding-left: 50px;
+}
+.name{
+    color: #D47F7A;
+    font-weight: bold;
+    text-align: left;
+}
+.timestamp{
+    margin-bottom: 1.5em;
+    color:rgb(1, 1, 1);
+    text-align: left;
+}
+.message{
+  text-align: left;
+ 
+  
+}
+.like{
+    width: 100px;
+    order: 1;
+}
+.answer{
+    width: 100px;
+    order: 2;
+    margin-top: -5px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+
+  h4{
+    font-size: 10px;
+  }
+}
